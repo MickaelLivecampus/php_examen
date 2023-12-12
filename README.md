@@ -72,11 +72,12 @@ Assurez-vous que tous vos fichiers de l'application sont prêts, y compris les f
 
 1. Utilisez un outil comme phpMyAdmin pour importer votre base de données sur le serveur MySQL d'InfinityFree.
 2. Assurez-vous que la structure et les données sont correctes.
+3. Suite au modification, verifiez les accès bases de données dans le fichier `config.php`
 
 ## Étape 5 : Téléchargement des Fichiers sur le Serveur
 
-1. Utilisez un client FTP (comme FileZilla) pour télécharger vos fichiers sur le serveur InfinityFree.
-2. Téléchargez-les dans le répertoire `htdocs` ou `public_html` sur le serveur, selon la configuration spécifique d'InfinityFree.
+1. Utilisez un client FTP (comme FileZilla) pour télécharger vos fichiers sur le serveur InfinityFree. ( InfinityFree en propose aussi un en navigateur )
+2. Téléchargez-les dans le répertoire `htdocs` ou `public_html` sur le serveur, selon la configuration spécifique d'InfinityFree. ( attention à ne pas uploadé des fichiers/dossiers non nécéssaire, par exemple, readme ou .git )
 
 ## Étape 6 : Configuration du Fichier .htaccess
 
@@ -86,6 +87,12 @@ Si votre application utilise le fichier `.htaccess`, assurez-vous qu'il est corr
 
 1. Ouvrez votre navigateur et accédez à votre domaine sur InfinityFree.
 2. Vérifiez que votre application fonctionne correctement.
+
+## Étape 8 : SSL
+
+1. Non obligatoire mais préfèrable, vous pouvez faire la demande d'un certificat SSL afin de passer votre domaine en HTTP secure depuis le tableau de bord d'InfinityFree
+2. Rendez vous sur la partie Free SSL Certificate du tableau de bord
+3. Suivez les étapes fournies
 
 Ces étapes devraient vous aider à déployer votre application PHP sur InfinityFree. Assurez-vous de consulter la documentation spécifique d'InfinityFree pour plus d'informations.
 
