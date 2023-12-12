@@ -67,11 +67,8 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `mot_de_passe`, `date_inscription`, `role`) VALUES
-(1, 'Boualaka', 'Murphy', 'contact@web-murphy.fr', 'azerty', '2023-11-03 10:07:59', 'admin'),
-(2, 'OUi', 'murphy', 'ok@ok', '$2y$10$AueZjU3P/qA733.q7h/4rOib8wORlDFzLLtFoDUYnG8IWZiy7zQl6', '2023-11-09 09:44:37', 'utilisateur'),
-(3, 'boualaka', 'murphy', 'murphya@gmail.com', '$2y$10$q.7lncYpU1ZzZ1LGnS1Kj.rAF7XKmQenneD8hQRgvO2bJhZDhFV66', '2023-11-09 14:22:19', 'admin'),
-(4, 'test', 'teest', 'test@test', '$2y$10$xSEoJGdBwbJXMU3BIRD6xuLh0Be/Bz0D8FxbNbyqzHN3Ovuvfa1O2', '2023-11-09 21:54:09', 'utilisateur'),
-(5, 'dfdf', 'fdfdf', 'fdf@fdf', '$2y$10$pY2UHGd6DcGYgmU1HgSgbOrp9g7fuFrAk1B7lIZi7anXzrFAlt5IG', '2023-11-09 21:59:23', 'utilisateur');
+(1, 'Smith', 'John', 'john@smith.com', '$2y$10$xSEoJGdBwbJXMU3BIRD6xuLh0Be/Bz0D8FxbNbyqzHN3Ovuvfa1O2', '2023-11-09 21:54:09', 'admin'),
+(2, 'Lord', 'Marc', 'marc@lord.com', '$2y$10$pY2UHGd6DcGYgmU1HgSgbOrp9g7fuFrAk1B7lIZi7anXzrFAlt5IG', '2023-11-09 21:59:23', 'utilisateur');
 
 --
 -- Index pour les tables déchargées
