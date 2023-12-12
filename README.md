@@ -11,7 +11,7 @@ Bienvenue dans le projet de l'application de gestion de librairie. Suivez ces é
 1. **Cloner le Dépôt :**
    - Utilisez la commande suivante pour cloner le dépôt :
      ```bash
-     git clone https://github.com/Smurphyz/evaluation-librairie.git
+     git clone https://github.com/Andragogy-FR/evaluation-librairie.git
      ```
 
 2. **Configuration de la Base de Données :**
