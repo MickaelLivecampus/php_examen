@@ -16,11 +16,12 @@ if (isset($_GET['id'])) {
     if ($stmt->rowCount() == 1) {
         $book = $stmt->fetch();
 
-        $query = "SELECT e.id_utilisateur, e.id FROM emprunts e WHERE e.id_livre = :idLivre";
+        $query = "SELECT e.id_utilisateur, e.id FROM emprunts e WHERE e.id_livre = :idLivre AND e.date_retour_effective IS NULL";
         $stmt = $pdo->prepare($query);
         $stmt->execute(array(':idLivre' => $bookId));
 
-        $emprunt = $stmt->fetch();
+        $emprunt = $stmt->fetch(PDO::FETCH_ASSOC);
+        var_dump($emprunt);
     } else {
         // Livre non trouvé, gérer l'erreur ici
     }
@@ -48,16 +49,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $stmt->execute();
 
-            // mettre à jour le status du libre 
-            $updateQuery = "UPDATE livres SET statut = :statut WHERE id = :book_id";
-            $updateStmt = $pdo->prepare($updateQuery);
-            $updateStmt->execute(array(
-                ':statut' => "disponible",
-                ':book_id' => $book_id
-            ));
+            // // mettre à jour le status du libre 
+            // $updateQuery = "UPDATE livres SET statut = :statut WHERE id = :book_id";
+            // $updateStmt = $pdo->prepare($updateQuery);
+            // $updateStmt->execute(array(
+            //     ':statut' => "disponible",
+            //     ':book_id' => $book_id
+            // ));
 
-            header("Location: emprunts.php");
-            exit();
+            // header("Location: emprunts.php");
+            // exit();
 
         } else {
             $error = 'Veuillez réessayer';
@@ -209,7 +210,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="date" id="date_retour_effective" name="date_retour_effective"
                         min="<?= date('Y-m-d', strtotime('+1 day')) ?>" value="<?= $bookId; ?>" required />
                     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>" />
-                    <button type="submit">Rendre le libre</button>
+                    <button type="submit">Rendre le livre</button>
                 </form>
             <?php elseif ($book['statut'] !== "emprunté"): ?>
                 <form method="post">
@@ -222,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>" />
                     <!-- TODO DISABLED CSS -->
                     <!-- <button <?= $book['statut'] == "emprunté" ? "disabled" : ""; ?> type="submit">Emprunter le libre</button> -->
-                    <button type="submit">Emprunter le libre</button>
+                    <button type="submit">Emprunter le livre</button>
                 </form>
             <?php endif; ?>
             <button onclick="window.location.href = 'books.php'">Retour à la liste des livres</button>
