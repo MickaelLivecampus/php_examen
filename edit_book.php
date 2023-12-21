@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ':description' => $description,
         ':date_publication' => $date_publication,
         ':isbn' => $isbn,
-          ':cover_url' => $coverUrl,
+        ':cover_url' => $coverUrl,
         ':book_id' => $book_id
     ));
 
