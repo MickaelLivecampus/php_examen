@@ -1,8 +1,6 @@
 <?php
+require_once('session.php');
 require('config.php');
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
 
 // Vérifiez si l'utilisateur est authentifié et a le rôle approprié (par exemple, "admin" ou "gestionnaire") pour accéder à cette fonctionnalité.
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
