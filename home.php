@@ -72,10 +72,11 @@ $resultTotalUsers = $stmtTotalUsers->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <!-- Footer -->
-    <footer>
+    <!-- why do we not use footer.php ?? -->
+    <!-- <footer>
     <div class="container">
         <p>&copy; <?= date("Y"); ?> Librairie XYZ</p>
     </div>
-</footer>
+    </footer> -->
 </body>
 </html>

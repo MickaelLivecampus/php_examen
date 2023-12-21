@@ -4,10 +4,10 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 
-$host = 'localhost';
+$host = 'www.livecampus.hexolis.com';
 $dbname = 'library';
-$username = 'root';
-$password = 'mysql';
+$username = 'admin';
+$password = 'cEU4r.fCJVFLD!d%2P):[u';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
