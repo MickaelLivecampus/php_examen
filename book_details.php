@@ -22,7 +22,7 @@ if (isset($_GET['id'])) {
         $stmt->execute(array(':idLivre' => $bookId));
 
         $emprunt = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump($emprunt);
+        // var_dump($emprunt);
     } else {
         // Livre non trouvé, gérer l'erreur ici
     }
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $stmt->execute();
 
-            // mettre à jour le status du libre 
+            // mettre à jour le status du livre 
             $updateQuery = "UPDATE livres SET statut = :statut WHERE id = :book_id";
             $updateStmt = $pdo->prepare($updateQuery);
             $updateStmt->execute(array(
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $csrfToken = filter_input(INPUT_POST, "csrf_token");
     
     
-        // Checks si le libre est disponible 
+        // Checks si le livre est disponible 
         $query = "SELECT * FROM livres WHERE id = :id";
         $stmt = $pdo->prepare($query);
         $stmt->execute(array(':id' => $book_id));
@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $stmt->bindParam('date_retour_prevue', $date_retour_prevue, PDO::PARAM_STR);
                         $stmt->execute();
     
-                        // mettre à jour le status du libre 
+                        // mettre à jour le status du livre 
                         $updateQuery = "UPDATE livres SET statut = :statut WHERE id = :book_id";
                         $updateStmt = $pdo->prepare($updateQuery);
                         $updateStmt->execute(array(
@@ -137,10 +137,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $error = "La date n'est pas valide";
                 }
             } else {
-                $error = "Le libre n'est pas disponible";
+                $error = "Le livre n'est pas disponible";
             }
         } else {
-            $error = "Le libre n'a pas été trouvé";
+            $error = "Le livre n'a pas été trouvé";
         }
     }
 
@@ -223,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         value="<?= $bookId; ?>" required />
                     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>" />
                     <!-- TODO DISABLED CSS -->
-                    <!-- <button <?= $book['statut'] == "emprunté" ? "disabled" : ""; ?> type="submit">Emprunter le libre</button> -->
+                    <!-- <button <?= $book['statut'] == "emprunté" ? "disabled" : ""; ?> type="submit">Emprunter le livre</button> -->
                     <button type="submit">Emprunter le livre</button>
                 </form>
             <?php endif; ?>
