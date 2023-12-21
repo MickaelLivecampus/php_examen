@@ -1,4 +1,5 @@
 <?php
+require_once('session.php');
 require('config.php');
 require('csrfToken.php');
 
@@ -49,16 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $stmt->execute();
 
-            // // mettre à jour le status du libre 
-            // $updateQuery = "UPDATE livres SET statut = :statut WHERE id = :book_id";
-            // $updateStmt = $pdo->prepare($updateQuery);
-            // $updateStmt->execute(array(
-            //     ':statut' => "disponible",
-            //     ':book_id' => $book_id
-            // ));
+            // mettre à jour le status du libre 
+            $updateQuery = "UPDATE livres SET statut = :statut WHERE id = :book_id";
+            $updateStmt = $pdo->prepare($updateQuery);
+            $updateStmt->execute(array(
+                ':statut' => "disponible",
+                ':book_id' => $book_id
+            ));
 
-            // header("Location: emprunts.php");
-            // exit();
+            header("Location: emprunts.php");
+            exit();
 
         } else {
             $error = 'Veuillez réessayer';
